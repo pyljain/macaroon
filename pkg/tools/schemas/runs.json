@@ -1,0 +1,51 @@
+{
+  "fields": [
+    {
+      "name": "RunID",
+      "description": "Unique identifier for each run"
+    },
+    {
+      "name": "timestamp",
+      "description": "When the run was executed"
+    },
+    {
+      "name": "userID",
+      "description": "Identifier for the user who executed the run"
+    },
+    {
+      "name": "modelUsed",
+      "description": "AI model used for the API request"
+    },
+    {
+      "name": "inputTokens",
+      "description": "Number of input tokens used in the run"
+    },
+    {
+      "name": "outputTokens",
+      "description": "Number of output tokens generated in the run"
+    },
+    {
+      "name": "totalTime",
+      "description": "Total execution time for the run in seconds"
+    },
+    {
+      "name": "totalSpend",
+      "description": "Total cost (USD) for the run"
+    },
+    {
+      "name": "filesAttached",
+      "description": "Boolean flag indicating whether files were attached to the request"
+    },
+    {
+      "name": "httpCode",
+      "description": "HTTP status code returned by the request"
+    }
+  ],
+  "examples": [
+    "```json\n[\n  { \"$count\": \"totalRuns\" }\n]\n```",
+    "```json\n[\n  { \"$group\": { \"_id\": \"$modelUsed\", \"count\": { \"$sum\": 1 } } }\n]\n```",
+    "```json\n[\n  { \"$match\": { \"httpCode\": 200 } },\n  { \"$count\": \"successfulRuns\" }\n]\n```",
+    "```json\n[\n  { \"$group\": { \"_id\": \"$userID\", \"totalSpend\": { \"$sum\": \"$totalSpend\" } } },\n  { \"$sort\": { \"totalSpend\": -1 } }\n]\n```",
+    "```json\n[\n  { \"$group\": { \"_id\": { \"$dateToString\": { \"format\": \"%Y-%m-%d\", \"date\": \"$timestamp\" } }, \"dailySpend\": { \"$sum\": \"$totalSpend\" } } },\n  { \"$sort\": { \"_id\": 1 } }\n]\n```"
+  ]
+}

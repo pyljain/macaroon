@@ -1,0 +1,31 @@
+{
+    "fields": [
+        {
+            "name": "model",
+            "description": "AI model used for the API request"
+        },
+        {
+            "name": "totalTokens",
+            "description": "Total tokens"
+        },
+        {
+            "name": "model",
+            "description": "AI model used for the API request"
+        },
+        {
+            "name": "model",
+            "description": "AI model used for the API request"
+        },
+        {
+            "name": "model",
+            "description": "AI model used for the API request"
+        },{
+            "name": "model",
+            "description": "AI model used for the API request"
+        }
+    ],
+    "examples": [
+        ""
+    ]
+    
+}
